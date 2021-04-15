@@ -30,7 +30,7 @@ export function getURL(sourceName) {
     let today = new Date()
     let yesterday = new Date(today)
 
-    yesterday.setDate(yesterday.getDate() - 2)
+    yesterday.setDate(yesterday.getDate() - 31)
 
     let dateString = new Date(yesterday.getTime() - (yesterday.getTimezoneOffset() * 60000 ))
         .toISOString()
