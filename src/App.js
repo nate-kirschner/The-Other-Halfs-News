@@ -3,6 +3,7 @@ import React from 'react';
 import $ from 'jquery';
 import { NavBar } from './navbar.js'
 import { Header } from './header.js'
+import Footer from './footer.js';
 import axios from "axios";
 import { getURL, LOSources } from "./list-of-sources";
 import {ArticleDiv} from "./article-div";
@@ -12,6 +13,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.slideRef = React.createRef();
+    this.slideNames = ["slide-1", "slide-2", "slide-3", "slide-4", "slide-5"];
     this.state = {
       isLoading: [],
       articles1: [{url: "Loading...", title: "Loading...", description: "Loading...", sourceName: "Loading..."}],
@@ -20,7 +22,6 @@ class App extends React.Component {
       articles4: [{url: "Loading...", title: "Loading...", description: "Loading...", sourceName: "Loading..."}],
       articles5: [{url: "Loading...", title: "Loading...", description: "Loading...", sourceName: "Loading..."}],
       errors: null,
-
     }
   }
 
@@ -133,51 +134,29 @@ class App extends React.Component {
           <NavBar onClick={this.handleScroll} />
 
 
-          <div class="slider" id="slide-container" ref={this.slideRef}>
-            <div className="slide" id="slide-1">
-              {this.pickArticle(1)}
-              {this.pickArticle(1)}
-              {this.pickArticle(1)}
-              {this.pickArticle(1)}
-            </div>
-
-            <div className="slide" id="slide-2">
-              {this.pickArticle(2)}
-              {this.pickArticle(2)}
-              {this.pickArticle(2)}
-              {this.pickArticle(2)}
-            </div>
-
-            <div className="slide" id="slide-3">
-              {this.pickArticle(3)}
-              {this.pickArticle(3)}
-              {this.pickArticle(3)}
-              {this.pickArticle(3)}
-            </div>
-
-            <div className="slide" id="slide-4">
-              {this.pickArticle(4)}
-              {this.pickArticle(4)}
-              {this.pickArticle(4)}
-              {this.pickArticle(4)}
-            </div>
-
-            <div className="slide" id="slide-5">
-              {this.pickArticle(5)}
-              {this.pickArticle(5)}
-              {this.pickArticle(5)}
-              {this.pickArticle(5)}
-            </div>
+          <div className="slider" id="slide-container" ref={this.slideRef}>
+            {
+              this.slideNames.map((slide, index) => {
+                return (
+                    <div className="slide" id={slide}>
+                      {this.pickArticle(index + 1)}
+                      {this.pickArticle(index + 1)}
+                      {this.pickArticle(index + 1)}
+                      {this.pickArticle(index + 1)}
+                    </div>
+                );
+              })
+            }
           </div>
+
+          <Footer />
 
 
         </div>
     );
-
-
   }
-
 }
+
 
 
 export default App;

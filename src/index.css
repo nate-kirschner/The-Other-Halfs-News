@@ -105,6 +105,18 @@ div {
   width: 1.4vw;
 }
 
+.footer {
+  background-color: white;
+  display: table;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+}
+.footer p {
+  color: black;
+  vertical-align: middle;
+}
+
 @media screen and (min-width: 700px) {
   h2 {
     font-size: 2.5vw;

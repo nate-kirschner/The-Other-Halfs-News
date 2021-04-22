@@ -1,6 +1,6 @@
 {
   "name": "tohnews",
-  "homepage": "http://nate-kirschner.github.io/news-aggregator",
+  "homepage": "http://nate-kirschner.github.io",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
